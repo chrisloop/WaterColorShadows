@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9077048356294131264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8c484d4c00c4941837619013a150d6, type: 3}
-  m_Name: Blit
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  settings:
-    Event: 0
-    blitMaterial: {fileID: 2100000, guid: 3672e169fe3555a42a0b1045b0296365, type: 2}
-    blitMaterialPassIndex: 0
-    destination: 0
-    renderTexture: {fileID: 8400000, guid: a7448a93f04d65a4dbb2bed3091f5799, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,9 +13,9 @@ MonoBehaviour:
   m_Name: UniversalRenderPipelineAsset_Renderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: -9077048356294131264}
-  - {fileID: 5608007406819862875}
-  m_RendererFeatureMap: c0810bba9cd807825be9412506a5d34d
+  - {fileID: 2863142013108250116}
+  - {fileID: 471237730694705144}
+  m_RendererFeatureMap: 0466d0c87decbb27f8afd126382c8a06
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -57,7 +38,7 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
---- !u!114 &5608007406819862875
+--- !u!114 &471237730694705144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,10 +50,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8c484d4c00c4941837619013a150d6, type: 3}
   m_Name: Blit
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     Event: 300
-    blitMaterial: {fileID: 2100000, guid: 7e6bd54338d2b294e977a0e9381e0f72, type: 2}
+    blitMaterial: {fileID: 2100000, guid: 114d8678773052f4b96f2d223970211a, type: 2}
     blitMaterialPassIndex: 0
     destination: 0
     renderTexture: {fileID: 0}
+--- !u!114 &2863142013108250116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c112c19a3a69c4697b058198829075, type: 3}
+  m_Name: DepthNormalsFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
