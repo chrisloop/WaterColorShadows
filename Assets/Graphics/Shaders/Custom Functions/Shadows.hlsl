@@ -1,8 +1,9 @@
-void Shadows_float(float3 WorldPos, float Smoothness, float3 WorldNormal, float3  WorldView, out float3 AdditionalShadows, out float3 MainLightShadow)
+void Shadows_float(float3 WorldPos, float Smoothness, float3 WorldNormal, float3  WorldView, out float3 AdditionalShadows, out float3 AdditionalLightsDiffuse, out float3 MainLightShadow)
 {
 	// Shader graph preview defaults;
 	AdditionalShadows = 1.0;
 	MainLightShadow = 1.0;
+	AdditionalLightsDiffuse = 1.0;
 
 	#ifndef SHADERGRAPH_PREVIEW
 		// spot light shadow
@@ -28,6 +29,8 @@ void Shadows_float(float3 WorldPos, float Smoothness, float3 WorldNormal, float3
 			diffuseColor += LightingLambert(attenuatedLightColor, light.direction, WorldNormal);
 			//specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
 		}
+
+		AdditionalLightsDiffuse = diffuseColor;
 		
 		// main light
 		half4 m_shadowCoord = TransformWorldToShadowCoord(WorldPos);
