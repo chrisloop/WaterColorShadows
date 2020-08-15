@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8c484d4c00c4941837619013a150d6, type: 3}
   m_Name: Blit
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
-    Event: 300
+    Event: 500
     blitMaterial: {fileID: 2100000, guid: 114d8678773052f4b96f2d223970211a, type: 2}
     blitMaterialPassIndex: 0
     destination: 0
