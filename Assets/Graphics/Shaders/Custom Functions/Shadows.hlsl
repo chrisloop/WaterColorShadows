@@ -1,4 +1,4 @@
-void Shadows_float(float3 WorldPos, float Smoothness, float3 WorldNormal, float3  WorldView, out float3 AdditionalShadows, out float3 AdditionalLightsDiffuse, out float3 MainLightShadow)
+void Shadows_float(float3 WorldPos, float3 WorldNormal, float3  WorldView, out float3 AdditionalShadows, out float3 AdditionalLightsDiffuse, out float3 MainLightShadow)
 {
 	// Shader graph preview defaults;
 	AdditionalShadows = 1.0;
@@ -6,7 +6,9 @@ void Shadows_float(float3 WorldPos, float Smoothness, float3 WorldNormal, float3
 	AdditionalLightsDiffuse = 1.0;
 
 	#ifndef SHADERGRAPH_PREVIEW
+		//
 		// spot light shadow
+		//
 		half4 shadowCoord = mul(_AdditionalLightsWorldToShadow[0], float4(WorldPos, 1.0));
 		ShadowSamplingData a_shadowSamplingData = GetAdditionalLightShadowSamplingData();
 		half4 shadowParams = GetAdditionalLightShadowParams(0);
@@ -14,25 +16,23 @@ void Shadows_float(float3 WorldPos, float Smoothness, float3 WorldNormal, float3
 		AdditionalShadows = SampleShadowmap(TEXTURE2D_ARGS(_AdditionalLightsShadowmapTexture, sampler_AdditionalLightsShadowmapTexture), shadowCoord, a_shadowSamplingData, shadowParams, true);
 
 		float3 diffuseColor = 0;
-		//float3 specularColor = 0;
 
-		Smoothness = exp2(10 * Smoothness + 1);
 		WorldNormal = normalize(WorldNormal);
 		WorldView = SafeNormalize(WorldView);
 		int pixelLightCount = GetAdditionalLightsCount();
 
-		float meh = 0;
 		for (int i = 0; i < pixelLightCount; ++i)
 		{
 			Light light = GetAdditionalLight(i, WorldPos);
 			float3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
 			diffuseColor += LightingLambert(attenuatedLightColor, light.direction, WorldNormal);
-			//specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
 		}
 
 		AdditionalLightsDiffuse = diffuseColor;
 		
+		//
 		// main light
+		//
 		half4 m_shadowCoord = TransformWorldToShadowCoord(WorldPos);
 
 		ShadowSamplingData m_shadowSamplingData = GetMainLightShadowSamplingData();
