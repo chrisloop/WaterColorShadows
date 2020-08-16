@@ -31,6 +31,6 @@ Material:
     - Vector1_C01B58B3: 0.31
     - Vector1_FD2F006E: 0.155
     m_Colors:
-    - Color_5213B2BE: {r: 1, g: 1, b: 1, a: 1}
+    - Color_5213B2BE: {r: 0.9521804, g: 1, b: 0.16470587, a: 1}
     - Color_CF3679A6: {r: 0.8679245, g: 0.8581218, b: 0.4789961, a: 1}
-    - Color_E1F4DE5F: {r: 1, g: 0.9680586, b: 0.5529412, a: 1}
+    - Color_E1F4DE5F: {r: 0.5529412, g: 0.8079933, b: 1, a: 1}
